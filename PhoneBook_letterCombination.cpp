@@ -10,7 +10,9 @@
 #include<cmath>
 #include<vector>
 using namespace std;
-vector<string> Ret(vector<string> v, char d){
+vector<string> Ret(vector<string> store,char d){
+	vector<string> v;
+	int i,j;
 	switch(d){
 		case '2': {
 			v.push_back("a");
@@ -63,68 +65,69 @@ vector<string> Ret(vector<string> v, char d){
 			break;
 		}
 	}
-	
-	return v;	
+	int len1 = v.size();
+	int len2 = store.size();
+	string s;
+	if(store.empty()){
+		store = v;
+		return store;
+	}
+	else{
+		for( i=0;i<len2;i++){
+			for(j=0;j<len1;j++){
+				s=store[i]+v[j];
+				store.push_back(s);
+			}
+		}
+	}
+	return store;	
 }
 vector<string> letterCombinations(string d){
 	int len = d.length();
 	int power = pow(3,len);
 	vector<string> v;
 	vector<string> temp;
-	string s;
 	if(len==0) {
 		return v;
 	}
 	else if(len==1){
 		v = Ret(v,d[0]);
+		return v;
 	}
 	else if(len==2){
 		v = Ret(v,d[0]);
 		v = Ret(v,d[1]);
-		for(int i=0;i<3;i++){
-			for(int j=3;j<6;j++){
-				s = v[i]+v[j];
-				temp.push_back(s);
-			}
-		}
-		return temp;
 	}
 	else if(len==3){
 		v = Ret(v,d[0]);
 		v = Ret(v,d[1]);
 		v = Ret(v,d[2]);
-		for(int i=0;i<3;i++){
-			for(int j=3;j<6;j++){
-				for(int k=6;k<9;k++){
-				s = v[i]+v[j]+v[k];
-				temp.push_back(s);
-				}
-			}
-		}
-		return temp;
 	}
 	else if(len==4){
 		v = Ret(v,d[0]);
 		v = Ret(v,d[1]);
 		v = Ret(v,d[2]);
 		v = Ret(v,d[3]);
-		for(int i=0;i<3;i++){
-			for(int j=3;j<6;j++){
-				for(int k=6;k<9;k++){
-					for(int l=9;l<12;l++){
-						s = v[i]+v[j]+v[k]+v[l];
-						temp.push_back(s);
-					}
-				}
-			}
-		}
-		return temp;
 	}
+		
+	int size = v.size();
+	for(int i=0;i<size;i++){
+		if(v[i].size() == d.size()){
+			temp.push_back(v[i]);
+		}
+	} 
+		
+		return temp;
 }
 int  main(){
 	string digit;
     vector<string>::iterator i;
-//	cin>>digit;
-	vector<string >a = letterCombinations("283");
-	for(i=a.begin();i!=a.end();i++) cout<<*i<<" ";	
+	digit = "23";
+	vector<string >a = letterCombinations(digit);
+	int size = a.size();
+	for(int i=0;i<size;i++){
+		if(a[i].size() == digit.size()){
+			cout<<a[i]<<" ";
+		}
+	} 	
 }
