@@ -14,7 +14,7 @@
     o/p:- ()()()() ()()(()) ()(())() ()(()()) ()((())) (())()() (())(()) (()())() (()()()) (()(())) ((()))() ((())()) ((()())) (((()))) 
 
 
-    so one can say that we have to check if there is any opening then only we can have closing brackets.
+    so one can say that we have to check if there is any opening brackets then only we can have closing brackets.
     e.g.:- if '(' is present then only ')' ,it will occur, else it won't be a valid set
 
 */
@@ -30,7 +30,7 @@ void fun(int n, int countOpen, int countClosed, string s, vector<string>& store)
         > countOpen is the counter to count the number of opening brackets
         > countClosed is the counter to count the number of closing brackets.
         > s is to store the string formed which are valid
-        > store is a vector which is uswd to store valid s. and it is passed by reference. That's why function fun() is void type
+        > store is a vector which is used to store valid s. and it is passed by reference. That's why function fun() is void type
     */
 
   if(countClosed == n){
@@ -49,9 +49,9 @@ void fun(int n, int countOpen, int countClosed, string s, vector<string>& store)
             here we check whether the number of closed brackets are less than opening brackets
             It is less because: 
                 > closing bracket cannot exceed opening brackets. This will leed to invalid string
-                > when this condition is hit at last then when we call this recursive function then we increment the countClosed which will automatically staisfy the base condition
-                 and we need not to check in this if condition
-                 e.g.: ()()  (this is for n=2) in this after doing ()( the countOpen will be 2 and countClosed will be 1 so 1<2 
+                > when this condition is hit at last then when we call this recursive function then we increment the countClosed which will 
+                  automatically staisfy the base condition and we need not to check in this if condition
+                 e.g.: ()()  (this is for n=2) in this after storing ()(  in s then, countOpen will be 2 and countClosed will be 1 so 1<2 
                  this condition is satisfied and after that calling function will be like: 
                  fun(n,2,1+1,()(+")",store)
                  so we can see countClosed will become 2, that's why it will be handled in base case
