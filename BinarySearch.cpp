@@ -7,14 +7,14 @@
 using namespace std;
 
 int BinarySearch(int a[], int start, int end, int val){
-    int mid = (start+ end)/2;
+    int mid = start + (end - start)/2;
+    if(start > end) return -1;
     if(a[mid] == val) return mid;
     else if(val > a[mid]){
         return BinarySearch(a,mid+1,end,val);
     }
-    else{
         return BinarySearch(a,start,mid-1,val);
-    }
+   
 }
 int main(){
     int n,num;
