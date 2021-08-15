@@ -53,17 +53,18 @@ int main(){
                 /\     
                7 -8  
 */
-    // struct TreeNode* root = new TreeNode(1);
-    // root->left = new TreeNode(7);
-    // root->left->right = new TreeNode(-8);
-    // root->left->left = new TreeNode(7);
-    // root->right = new TreeNode(0);
+    struct TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(7);
+    root->left->right = new TreeNode(-8);
+    root->left->left = new TreeNode(7);
+    root->right = new TreeNode(0);
 
-    struct TreeNode* root = new TreeNode(989);
-    // root->right = new TreeNode(10250);
-    // root->right->left = new TreeNode(98693);
-    // root->right->right = new TreeNode(-89388);
-    // root->right->right->right = new TreeNode(-32127);
+//     struct TreeNode* root = new TreeNode(989);
+//     root->right = new TreeNode(10250);
+//     root->right->left = new TreeNode(98693);
+//     root->right->right = new TreeNode(-89388);
+//     root->right->right->right = new TreeNode(-32127);
+    
     cout<<maxLevelSum(root);
 
 }
