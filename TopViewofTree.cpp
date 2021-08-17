@@ -1,4 +1,5 @@
 // https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1
+// https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1
 #include<iostream>
 #include<vector>
 #include<queue>
@@ -25,7 +26,7 @@ void findMinMax(Node* root, int h, int a[]){
     findMinMax(root->left, h-1, a);
     findMinMax(root->right, h+1, a);
 }
-vector<int> verticalTraversal(Node* root) {
+vector<int> topView(Node* root) {
     queue<pair<Node* ,int>> q;
     int a[2] = {0};
     findMinMax(root,0,a);
@@ -80,6 +81,6 @@ int main(){
     root->right->right = new Node(7);
     root->right->right->right = new Node(9);
     root->left->right->right->right = new Node(8);
-    vector<int> v = verticalTraversal(root);
+    vector<int> v = topView(root);
     for(int e: v) cout<<e<<" ";
 }
